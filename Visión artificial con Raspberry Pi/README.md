@@ -1,48 +1,77 @@
-# Paso 1: Instalando OpenCV
+# Paso 1: Instalación de sistema operativo recomendado:
 
-Lanzamos los siguientes comandos en un terminal:
+Para que todas las librerías verificadas nos funcionen bien con OpenCV, se recomienda esta versión de Raspberry Pi OS: 
+
+https://downloads.raspberrypi.com/raspios_full_armhf/images/raspios_full_armhf-2023-05-03/2023-05-03-raspios-bullseye-armhf-full.img.xz
+
+La instalamos con Raspberry Pi Imager ( descarga para windows desde: https://downloads.raspberrypi.org/imager/imager_latest.exe )
+
+# Paso 2: Configuración inicial de la RPi:
+
+Podemos hacer una configuración inicial básica desde el interfaz de Raspberry Pi Imager o bien nos saldrá el menú de configuración inicial en el primer arranque de la raspberry. Lo importante es configurarla por cable ó wifi, para que tengamos en todo momento acceso a internet para actualización de librerías, paquetes de sistema y demás recursos. La configuración de red la dejamos SIEMPRE en DHCP para no tener problemas de asignación de ips. IMPORTANTE: Activamos SSH por clave al configurar la tarjeta:
+
+![image](https://github.com/villalvilla/WRO-2024-Acervantes-Tips/assets/3918996/f68d066c-d096-44a5-a7e6-ccdacb9ad1f4)
+
+# Paso 3: Configurar VNC para conectar a la RPi desde Windows:
+
+Como paso número 1 debemos ir a home en nuestra Raspberry, posteriormente a preferencias y a Configuración de Raspberry Pi
+
+![image](https://github.com/villalvilla/WRO-2024-Acervantes-Tips/assets/3918996/f3089f5a-148a-4c94-a1d7-5a47eed67164)
+
+
+Una vez dentro de Configuración de Raspberry Pi, nos deberemos posicionar en la pestaña Interfaces, en la cual habilitaremos VNC como se muestra en la imagen, por último, debes dar clic al botón aceptar
+
+![image](https://github.com/villalvilla/WRO-2024-Acervantes-Tips/assets/3918996/0eb54ee8-9ea9-4989-a713-0a6155925157)
+
+
+Perfecto, se ha habilitado la comunicación mediante VNC con la Raspberry Pi, ahora debemos de ver siempre en nuestro escritorio de nuestras Raspberry Pi el siguiente icono que se encuentra enmarcado en verde.
+
+![image](https://github.com/villalvilla/WRO-2024-Acervantes-Tips/assets/3918996/ef364369-c3da-4715-b933-30d23860b387)
+
+
+Si vamos a este icono de VNC y le damos clic, se nos mostrará una ventana en la cual ubicaremos la sección Conectividad y en ella encontraremos la dirección IP de nuestra Raspberry Pi, asegúrate de tener la Raspberry Pi conectada a tu red, ya sea por WiFi o Ethernet. Ahora apunta esta dirección IP porque la necesitaremos más adelante.
+
+![image](https://github.com/villalvilla/WRO-2024-Acervantes-Tips/assets/3918996/7ea960ec-efa2-4f7f-b403-d5142da217a1)
+
+
+Ahora toca el turno de pasarnos a Windows y realizar la configuración en el, son un poco más de pasos, pero igual de sencillos. Lo primero que debemos hacer es descargar en Windows el programa RealVNC Viewer del siguiente enlace: Descargar VNC Viewer, daremos clic en Download VNC Viewer
+
+![image](https://github.com/villalvilla/WRO-2024-Acervantes-Tips/assets/3918996/3dc61504-7622-48c8-85ba-493fab845e0b)
+
+
+Una vez culminada la descarga, ejecutaremos el instalador y nos solicitará seleccionar el idioma y dar clic en Aceptar. Posteriormente daremos clic en Siguiente y nuevamente en Siguiente.
+
+![image](https://github.com/villalvilla/WRO-2024-Acervantes-Tips/assets/3918996/2683857e-6470-424a-b366-4581b41e4452)
+ 
+
+En esta siguiente pantalla daremos también clic en Siguiente
+
+![image](https://github.com/villalvilla/WRO-2024-Acervantes-Tips/assets/3918996/1495b0d1-eed2-4407-9b9a-c37857d262c3)
+
+
+Damos clic en Ejecutar, muy posiblemente nos solicite aceptar que se ejecute como administrador, comenzará la instalación y al culminar debemos dar clic en Finalizar
+
+![image](https://github.com/villalvilla/WRO-2024-Acervantes-Tips/assets/3918996/b583b41e-cbcd-40b8-b089-976f295df65e)
+   
+
+En este punto debemos ejecutar el programa RealVNC, iremos a la pestaña Archivo y daremos clic sobre Nueva conexión
+
+![image](https://github.com/villalvilla/WRO-2024-Acervantes-Tips/assets/3918996/be9b1d18-bddd-4e71-b831-2af9f0716b2d)
+
+
+Al realizar el paso anterior se nos abrirá una nueva ventana, en la cual colocaremos la dirección IP que nos arrojó la Raspberry Pi en la sección Conectividad de VNC, daremos clic en Aceptar
+
+![image](https://github.com/villalvilla/WRO-2024-Acervantes-Tips/assets/3918996/0acb1937-b3d5-4731-8208-ca39dae07020)
+
+
+Nos deberá aparecer de la siguiente manera, le daremos doble clic al icono que aparece con la IP de nuestra Raspberry Pi y nos saltará una nueva ventana en donde colocaremos el nombre de usuario que configuramos en la configuración inicial de nuestra Raspberry, al igual que la contraseña. Daremos clic en aceptar y se realizará la conexión con nuestra Raspberry Pi, debemos de poder ver el escritorio y controlarla con nuestro mouse y teclado en Windows.
+
+![image](https://github.com/villalvilla/WRO-2024-Acervantes-Tips/assets/3918996/bfaa9307-8bd7-42fb-bae9-8211cfafabd9)
+
+
+
+
 
 <pre>
-# Update the package list
-sudo apt-get update
 
-# Install the dependencies
-sudo apt-get install -y build-essential cmake pkg-config libgtk-3-dev \
-                        libavcodec-dev libavformat-dev libswscale-dev libv4l-dev \
-                        libxvidcore-dev libx264-dev libjpeg-dev libpng-dev libtiff-dev \
-                        gfortran openexr libatlas-base-dev python3-dev python3-numpy \
-                        libtbb2 libtbb-dev libdc1394-22-dev
-
-# Clone the OpenCV repository
-git clone https://github.com/opencv/opencv.git
-
-# Clone the OpenCV contrib repository (for additional modules)
-git clone https://github.com/opencv/opencv_contrib.git
-
-# Create a build directory
-cd opencv
-mkdir build
-cd build
-
-# Configure the build
-cmake -D CMAKE_BUILD_TYPE=RELEASE \
-      -D CMAKE_INSTALL_PREFIX=/usr/local \
-      -D OPENCV_EXTRA_MODULES_PATH=../../opencv_contrib/modules \
-      -D ENABLE_NEON=ON \
-      -D ENABLE_VFPV3=ON \
-      -D BUILD_TESTS=OFF \
-      -D OPENCV_ENABLE_NONFREE=ON \
-      -D INSTALL_PYTHON_EXAMPLES=OFF \
-      -D OPENCV_PYTHON3_INSTALL_PATH=/usr/local/lib/python3.5/dist-packages \
-      -D BUILD_EXAMPLES=OFF ..
-
-# Compile OpenCV
-make -j4
-
-# Install OpenCV
-sudo make install
-
-# Remove the build directory
-cd ..
-rm -rf build
 </pre>
