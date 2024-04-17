@@ -68,10 +68,55 @@ Nos deberá aparecer de la siguiente manera, le daremos doble clic al icono que 
 
 ![image](https://github.com/villalvilla/WRO-2024-Acervantes-Tips/assets/3918996/bfaa9307-8bd7-42fb-bae9-8211cfafabd9)
 
+# Paso 4: Instalación de dependencias del sistema:
 
+Como vamos a utilizar python3 y en concreto pip installer para la mayoría de recursos, os recomiendo que uséis esta herramienta online siempre que necesitéis revisar los recursos de python y los requisitos de dependencias de los paquetes que queráis utilizar. Viene EXCELENTE saber en todo momento qué necesitamos para tener montada determinada utilidad en python o librería: [piwheels - Package List](https://www.piwheels.org/packages.html)
 
-
-
+Dependencias para instalar:
 <pre>
-
+#comandos para verificar actualizaciones
+sudo apt update
+sudo apt upgrade
+ 
+#comandos para instalar las dependencias necesarias
+sudo apt-get install libhdf5-dev 
+sudo apt-get install libhdf5-serial-dev
+sudo apt-get install libatlas-base-dev
+sudo apt-get install libjasper-dev 
+sudo apt-get install libqt5gui5 
+sudo apt-get install libqt5webkit5 
+sudo apt-get install libqt5test5
+sudo apt-get install libilmbase-dev
+sudo apt-get install libopenexr-dev
+sudo apt-get install libgstreamer1.0-dev
+sudo apt-get install libavcodec-dev
+sudo apt-get install libavformat-dev
+sudo apt-get install libswscale-dev
+sudo apt-get install libwebp-dev
+sudo apt install libxcb-shm0 
+sudo apt install libcdio-paranoia-dev 
+sudo apt install libsdl2-2.0-0 
+sudo apt install libxv1 
+sudo apt install libtheora0 
+sudo apt install libva-drm2 
+sudo apt install libva-x11-2 
+sudo apt install libvdpau1 
+sudo apt install libharfbuzz0b 
+sudo apt install libbluray2 
+sudo apt install libhdf5-103 
+sudo apt install libgtk-3-0 
+sudo apt install libdc1394-25
+sudo apt install libopenexr25
+sudo apt install ffmpeg
+sudo apt install libwebpdemux2 libopenjp2-7 libwebpmux3 liblcms2-2
+sudo apt-get install gfortran libopenblas-dev liblapack-dev -y
+sudo apt install libgfortran5 libatlas3-base
 </pre>
+
+# Paso 5: Habilitamos la cámara 
+#comando para entrar a la configuración y habilitar cámara
+sudo raspi-config
+
+
+
+
