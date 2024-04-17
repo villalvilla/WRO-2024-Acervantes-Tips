@@ -10,7 +10,7 @@ camera.resolution = (w, h)
 rawCapture = PiRGBArray(camera, size=(w, h))
 time.sleep(0.3)
 
-faceCascade = cv2.CascadeClassifier('../haarcascades/haarcascade_frontalface_default.xml')
+faceCascade = cv2.CascadeClassifier('./haarcascade_frontalface_default.xml')
 for frame in camera.capture_continuous(rawCapture, format="bgr", use_video_port=True):
     image = frame.array
     gray = cv2.cvtColor(image, cv2.COLOR_BGR2GRAY)
@@ -22,7 +22,7 @@ for frame in camera.capture_continuous(rawCapture, format="bgr", use_video_port=
         pass
     cv2.imshow("Frame", image)
     rawCapture.truncate(0)
-    key = cv2.waitKey(1) &amp; 0xFF
+    key = cv2.waitKey(1) & 0xFF
     if key == ord("q"):
         break
 cv2.destroyAllWindows()
