@@ -82,7 +82,7 @@ Te recomiendo que instales todas las librerías usando ssh, porque de esa manera
 A este efecto, con el objetivo de prevenir pérdidas de conexión mientras instalas paquetes en tu raspberry, te recomiendo que instales el paquete de debian "screen". Lo que hace screen es crear un proceso en el árbol raíz de procesos de linux y vincular tu shell remota a ese proceso raíz, de tal manera que, si se te corta la conexión con la RPi, el proceso sigue corriendo en background y podrás hacer un "reattach" cuando vuelvas a tener conexión, sin perder ningún proceso crítico. Para instalar screen:
 
 <pre>
- apt install screen
+ sudo apt install screen
 </pre>
 
 Para usar screen sólo tendras que escribir en la shell de ssh "screen" (sin comillas) y te aparecerá lo siguiente:
