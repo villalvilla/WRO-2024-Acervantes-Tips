@@ -18,7 +18,7 @@ for frame in camara.capture_continuous(capNoProcesada, format="bgr", use_video_p
     imagen = frame.array
     cv2.imshow("Frame", imagen)
     capNoProcesada.truncate(0)
-    key = cv2.waitKey(1) &amp; 0xFF
+    key = cv2.waitKey(1) & 0xFF
     if key == ord("q"):
         break
 cv2.destroyAllWindows()
