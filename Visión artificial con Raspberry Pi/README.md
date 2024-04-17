@@ -199,3 +199,21 @@ pip3 install pyefd==1.5.1
 pip3 install scikit-image==0.19.3
 pip3 install imutils==0.5.4
 </pre>
+
+# Paso 10: Probar los ejemplos de captura de imágenes y videos:
+
+Os recomiendo, antes de clonar todo en una rapsberry pi sin X (entorno de escritorio), que uséis un editor de código visual, que os permita ejecutar código de una manera "amigable", aunque por ssh también lo podréis ejecutar. Yo os recomiendo Thonny, que suele venir instalado en la distro de raspbian.
+
+Os he dejado, para abrir boca, 2 códigos de captura de imágenes en esta misma carpeta donde tenéis el readme. Podéis empezar por "Captura_de_Imagenes.py".
+
+Para ejecutarlo, primero haced un clone de este repositorio y os ubicáis en la carpeta de visión artificial, con los siguientes comandos:
+<pre>
+git clone https://github.com/villalvilla/WRO-2024-Acervantes-Tips.git
+cd WRO-2024-Acervantes-Tips/Visión\ artificial\ con\ Raspberry\ Pi/
+</pre>
+
+Recordad que para hacer la captura de las imágenes, tenéis que estar ejecutando código en las X de la Raspberry o mediante VNC con Thonny o terminal directamente:
+
+<pre>
+ python3 Captura_de_Imagenes.py
+</pre>
