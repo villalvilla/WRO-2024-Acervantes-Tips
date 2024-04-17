@@ -209,7 +209,7 @@ Os he dejado, para abrir boca, 2 códigos de captura de imágenes en esta misma 
 Para ejecutarlo, primero haced un clone de este repositorio y os ubicáis en la carpeta de visión artificial, con los siguientes comandos:
 <pre>
 git clone https://github.com/villalvilla/WRO-2024-Acervantes-Tips.git
-cd WRO-2024-Acervantes-Tips/Visión\ artificial\ con\ Raspberry\ Pi/
+cd WRO-2024-Acervantes-Tips/Visión\ artificial\ con\ Raspberry\ Pi/Captura_imagenes/
 </pre>
 
 Recordad que para hacer la captura de las imágenes, tenéis que estar ejecutando código en las X de la Raspberry o mediante VNC con Thonny o terminal directamente:
