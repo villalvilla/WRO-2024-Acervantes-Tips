@@ -217,3 +217,10 @@ Recordad que para hacer la captura de las imágenes, tenéis que estar ejecutand
 <pre>
  python3 Captura_de_Imagenes.py
 </pre>
+
+Probamos ahora el código de captura secuencial de imágenes:
+
+<pre>
+python3 Captura_de_Imagenes_Sucesiva.py
+</pre>
+
