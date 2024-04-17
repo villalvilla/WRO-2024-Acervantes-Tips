@@ -123,7 +123,7 @@ sudo apt-get install libhdf5-dev libhdf5-serial-dev libatlas-base-dev libjasper-
  
 sudo apt install libxcb-shm0  libcdio-paranoia-dev  libsdl2-2.0-0  libxv1  libtheora0  libva-drm2  libva-x11-2  libvdpau1  libharfbuzz0b  libbluray2  libhdf5-103  libgtk-3-0  libdc1394-25 libopenexr25 ffmpeg libwebpdemux2 libopenjp2-7 libwebpmux3 liblcms2-2 gfortran libopenblas-dev liblapack-dev
  
-sudo apt install libgfortran5 libatlas3-base
+sudo apt install libgfortran5 libatlas3-base git
 </pre>
 
 # Paso 6: Habilitamos la cámara 
