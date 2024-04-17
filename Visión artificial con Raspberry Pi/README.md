@@ -126,10 +126,76 @@ sudo apt install libxcb-shm0  libcdio-paranoia-dev  libsdl2-2.0-0  libxv1  libth
 sudo apt install libgfortran5 libatlas3-base
 </pre>
 
-# Paso 5: Habilitamos la cámara 
-#comando para entrar a la configuración y habilitar cámara
+# Paso 6: Habilitamos la cámara 
+Al final de la instalación de todas las dependencias, es importante habilitar la configuración de la cámara con raspi-config. ¡Ojo! Como sabéis, esto implicará usar las librerías de picamera 1.0, en lugar de picamera 2.0 que hemos venido usando en las últimas clases, pero he verificado las fuentes con piwheels y es mucho más seguro utilizar picamera hasta que se estabilice un poco más picamera 2, por lo que habilitamos picamera en raspi-config y reiniciamos la raspberry pi.
+
+<pre>
 sudo raspi-config
+</pre>
 
+# Paso 7: Instalación de librerías:
 
+Como sabéis, para el proyecto de visión artificial vamos a usar OpenCV. Como os he comentado en clase, piwheels nos ha sido de gran ayuda para identificar qué librerías de python necesitamos que no nos hagan "romperse" las dependencias y "crashear" nuestra instalación, por lo que os dejo por aquí las librerías que debemos instalar:
 
+<pre>
+ #actualizamos primero pip:
+pip install --upgrade pip
+</pre>
 
+Después debemos instala numpy. ¡Ojo! Como os he explicado, SIEMPRE nos vamos a verificar las últimas releases con piwheels, para lo que debemos saber primero nuestra versión de python. Para ello ejecutamos en el terminal lo siguiente:
+<pre>
+ python
+</pre>
+
+Eso nos mostrará lo siguiente:
+
+![image](https://github.com/villalvilla/WRO-2024-Acervantes-Tips/assets/3918996/46b09278-63a4-40a5-86cd-98563683b9f6)
+
+Por tanto, sabemos que tenemos la versión 3.9.2, con lo cuál vamos a piwheels y buscamos "numpy", lo cuál nos devuelve lo siguiente:
+
+![image](https://github.com/villalvilla/WRO-2024-Acervantes-Tips/assets/3918996/2eab4736-05f6-4133-8e49-d6ffac26168a)
+
+Si os fijáis, en la columna de arriba de cada versión diferente de python os pone un nombre (buster, bullseye, etc). Aparte de ser nombres de personajes de Toy Story, son los nombres de las versiones de Debian. En nuestro caso, para comprobar la versión de debian que estamos usando (raspbian es una branch de debian) debemos poner lo siguiente en la línea de comandos:
+
+<pre>
+lsb_release -a 
+</pre>
+
+Y nos dirá qué versión de debian estamos ejecutando.
+
+Ya sabemos que estamos usando python 3.9.2 y debian bullseye, por lo que en piwheels debemos seleccionar la versión más moderna en este momento (1.26.4). ¡Ojo! No selecciono la opción 2.0 porque esas versiones aún están marcadas como pre-release y me pueden dar problemas. ¡VAMOS A LO SEGURO!
+
+Instalamos numpy:
+
+<pre>
+pip3 install -U numpy==1.26.4
+</pre>
+
+Constantemente nos va a dar este warning pip: WARNING: The script f2py is installed in '/home/miky/.local/bin' which is not on PATH.
+  Consider adding this directory to PATH or, if you prefer to suppress this warning, use --no-warn-script-location.
+
+Podemos ignorarlo, ya que por defecto siempre vamos a usar el mismo usuario (en vuestro caso en lugar de /home/miky pondrá /home/nombre_de_vuestro_usuario). A futuro, cuando montéis todo sobre una dietpi u otra distro SIN X-WINDOWS, debéis considerar si añadir la ruta que os sugiere al PATH de ejecución del sistema. De momento no es necesario.
+
+# Paso 8: Instalación de OpenCV:
+
+Ya hemos comprobado que piwheels es un grandísimo aliado, por lo que nos vamos derechos a comprobar qué necesito para que opencv corra sin problemas en mi bullseye. Buscando opencv-python vemos que nos sugiere los siguientes comandos (Ten en cuenta que, para que no sea taaaan largo, yo ya te he resumido en el paso 5 los apt install que necesitabas, por lo que sólo son necesarios los pip/pip3 install):
+
+![image](https://github.com/villalvilla/WRO-2024-Acervantes-Tips/assets/3918996/a2fb96a0-05d7-448c-b980-632e0d4cf904)
+
+¡Ojo! Aquí nos podemos equivocar pero bien. La última versión compatible sin problemas con bullseye y python 3.9 es la 4.6.0.66, por lo que la instalo en mi sistema:
+
+<pre>
+pip3 install opencv-python==4.6.0.66
+</pre>
+
+# Paso 9: Instalación de scipy y diversos kits de librerías
+
+Como ya es habitual, buscamos los diversos paquetes que debo instalar previamente con piwheels, por lo que obtendremos el siguiente resultado:
+
+<pre>
+pip3 install scipy==1.13.0
+pip3 install scikit-learn==1.4.2
+pip3 install pyefd==1.5.1
+pip3 install scikit-image==0.19.3
+pip3 install imutils==0.5.4
+</pre>
