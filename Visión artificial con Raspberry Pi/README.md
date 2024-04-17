@@ -68,7 +68,47 @@ Nos deberá aparecer de la siguiente manera, le daremos doble clic al icono que 
 
 ![image](https://github.com/villalvilla/WRO-2024-Acervantes-Tips/assets/3918996/bfaa9307-8bd7-42fb-bae9-8211cfafabd9)
 
-# Paso 4: Instalación de dependencias del sistema:
+# Paso 4: Configuración y prueba de SSH para conectarnos en remoto a la RPi desde Windows:
+
+Si habéis seguido los pasos del paso 2, deberíais ser capaces de conectaros desde un cmd de windows 11 a vuestra raspberry pi por ssh, escribiendo el siguiente comando:
+<pre>
+ssh nombre_de_usuario@ip_de_la_RPi
+</pre>
+
+Recuerda sustituir nombre_de_usuario e ip_de_la_Rpi por el nombre de usuario y la ip de la raspberry correspondientes.
+
+Te recomiendo que instales todas las librerías usando ssh, porque de esa manera podrás seguir el tutorial en windows y copiar/pegar los comandos en la shell (linea de comandos) de linux, además de poder ir documentando en tu github (esto es crucial para llevar a buen puerto vuestro proyecto) cualquier cambio o librería que no funcione correctamente con tu instalación.
+
+A este efecto, con el objetivo de prevenir pérdidas de conexión mientras instalas paquetes en tu raspberry, te recomiendo que instales el paquete de debian "screen". Lo que hace screen es crear un proceso en el árbol raíz de procesos de linux y vincular tu shell remota a ese proceso raíz, de tal manera que, si se te corta la conexión con la RPi, el proceso sigue corriendo en background y podrás hacer un "reattach" cuando vuelvas a tener conexión, sin perder ningún proceso crítico. Para instalar screen:
+
+<pre>
+ apt install screen
+</pre>
+
+Para usar screen sólo tendras que escribir en la shell de ssh "screen" (sin comillas) y te aparecerá lo siguiente:
+
+![image](https://github.com/villalvilla/WRO-2024-Acervantes-Tips/assets/3918996/fdb6e531-8c83-4570-b3f2-56ef44a4d636)
+
+Pulsa la tecla espacio para continuar y estarás dentro de screen. Para salir de screen, recuerda poner exit en el ssh.
+
+Para reconectar una sesión perdida, prueba lo siguiente:
+
+<pre>
+ screen -ls
+</pre>
+
+Te aparecerá algo similar a esto:
+
+![image](https://github.com/villalvilla/WRO-2024-Acervantes-Tips/assets/3918996/a7f5ac5b-9815-4b56-a176-709b986a4303)
+
+El código del principio de línea es lo que tendrás que usar para reconectarte (en mi caso 19746.pts-1.rocinante)
+
+Con ese código, simplemente haz:
+<pre>
+ screen -ra 19746.pts-1.rocinante
+</pre>
+
+# Paso 5: Instalación de dependencias del sistema:
 
 Como vamos a utilizar python3 y en concreto pip installer para la mayoría de recursos, os recomiendo que uséis esta herramienta online siempre que necesitéis revisar los recursos de python y los requisitos de dependencias de los paquetes que queráis utilizar. Viene EXCELENTE saber en todo momento qué necesitamos para tener montada determinada utilidad en python o librería: [piwheels - Package List](https://www.piwheels.org/packages.html)
 
@@ -79,37 +119,10 @@ sudo apt update
 sudo apt upgrade
  
 #comandos para instalar las dependencias necesarias
-sudo apt-get install libhdf5-dev 
-sudo apt-get install libhdf5-serial-dev
-sudo apt-get install libatlas-base-dev
-sudo apt-get install libjasper-dev 
-sudo apt-get install libqt5gui5 
-sudo apt-get install libqt5webkit5 
-sudo apt-get install libqt5test5
-sudo apt-get install libilmbase-dev
-sudo apt-get install libopenexr-dev
-sudo apt-get install libgstreamer1.0-dev
-sudo apt-get install libavcodec-dev
-sudo apt-get install libavformat-dev
-sudo apt-get install libswscale-dev
-sudo apt-get install libwebp-dev
-sudo apt install libxcb-shm0 
-sudo apt install libcdio-paranoia-dev 
-sudo apt install libsdl2-2.0-0 
-sudo apt install libxv1 
-sudo apt install libtheora0 
-sudo apt install libva-drm2 
-sudo apt install libva-x11-2 
-sudo apt install libvdpau1 
-sudo apt install libharfbuzz0b 
-sudo apt install libbluray2 
-sudo apt install libhdf5-103 
-sudo apt install libgtk-3-0 
-sudo apt install libdc1394-25
-sudo apt install libopenexr25
-sudo apt install ffmpeg
-sudo apt install libwebpdemux2 libopenjp2-7 libwebpmux3 liblcms2-2
-sudo apt-get install gfortran libopenblas-dev liblapack-dev -y
+sudo apt-get install libhdf5-dev libhdf5-serial-dev libatlas-base-dev libjasper-dev  libqt5gui5  libqt5webkit5  libqt5test5 libilmbase-dev libopenexr-dev libgstreamer1.0-dev libavcodec-dev libavformat-dev libswscale-dev libwebp-dev
+ 
+sudo apt install libxcb-shm0  libcdio-paranoia-dev  libsdl2-2.0-0  libxv1  libtheora0  libva-drm2  libva-x11-2  libvdpau1  libharfbuzz0b  libbluray2  libhdf5-103  libgtk-3-0  libdc1394-25 libopenexr25 ffmpeg libwebpdemux2 libopenjp2-7 libwebpmux3 liblcms2-2 gfortran libopenblas-dev liblapack-dev
+ 
 sudo apt install libgfortran5 libatlas3-base
 </pre>
 
