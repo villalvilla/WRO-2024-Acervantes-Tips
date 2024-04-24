@@ -24,3 +24,26 @@ Por tanto, partimos de una situación similar a esta:
 
 ![image](https://github.com/villalvilla/WRO-2024-Acervantes-Tips/assets/3918996/8eae6365-ad51-4993-8320-418d39b57305)
 
+Sobre esa situación de partida, nos debemos hacer un "croquis", mediante el cuál nos definiremos a izquierda y derecha unos "límites de tolerancia", ya que los motores con los que contamos no tienen una precisión perfecta, y en la vida real contaremos con múltiples casuísticas que harán complicado que podamos trabajar en condiciones ideales. ¡RECORDAD! Siempre siempre debéis trabajar con márgenes de tolerancia y error ó sensibilidad. Se ha fijado una sensibilidad de 20 píxeles, pero se puede ir ajustando según la necesitéis:
+
+![image](https://github.com/villalvilla/WRO-2024-Acervantes-Tips/assets/3918996/ef33d0eb-6544-4345-b62d-b3cbde02b477)
+
+Una vez tenido todo esto en cuenta, calcular el "centroide" o "centro de referencia" de nuestro recuadro donde se está detectando el rostro se calcularía así:
+
+![image](https://github.com/villalvilla/WRO-2024-Acervantes-Tips/assets/3918996/8a0dff8c-ac55-4c6a-9e6c-2a8c995f2f0f)
+
+Es decir:
+<pre>X+W1/2, Y+h1/2</pre>
+
+O lo que viene siendo lo mismo: la posición de origen en X e Y donde se encuentra el recuadro del rostro más el ancho ó alto del recuadro, dividido entre 2 para hallar su Centro. 
+
+Con esas coordenadas (siempre cogemos sólo las coordenadas X, recordad) son con las que compararemos si están (más/menos 20 píxeles) en el Centro del Frame. Resumiendo:
+
+<pre>
+  Sensores:
+      lim1X = W/2 + 20
+      lim2X = W/2 + 20
+  Centroide:
+      cX = X + W1/2
+      cY = Y + H1/2
+</pre>
