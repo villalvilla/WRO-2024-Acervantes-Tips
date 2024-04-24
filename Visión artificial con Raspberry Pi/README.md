@@ -231,5 +231,8 @@ En la carpeta Robot_Seguidor_Rostros aquí: https://github.com/villalvilla/WRO-2
 Os he dejado el guión detallado de cómo proceder con el código de detección de rostros y cómo configurar vuestro Robot para que los motores se muevan según la cámara detecte un rostro o no.
 ¡CUIDADO! Debéis tener en cuenta que un equipo estáis haciendo la movilidad del robot con servos 360 y el otro lo habéis probado con driver L298N, por lo que deberéis adaptar el código de ejemplo que os dejo a ello.
 
+# Paso 12: RETO!!! De sigue-rostros horizontal a sigue-rostros completo (roomba style)
 
+Debéis realizar, partiendo del código del Paso 11, evolucionar el código para que vuestro detector de rostros se aproxime a la cara reconocida según ésta se aleje.
 
+Pista: Debéis jugar con la posición/distancia del recuadro principal de reconocimiento del rostro, para saber si el objeto está más cerca o más lejos.
