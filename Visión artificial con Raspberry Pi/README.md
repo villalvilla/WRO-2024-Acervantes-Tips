@@ -224,9 +224,12 @@ Probamos ahora el código de captura secuencial de imágenes:
 python3 Captura_de_Imagenes_Sucesiva.py
 </pre>
 
-# Paso 11: Probar el ejemplo de Robot seguidor de Rostros:
+# Paso 11: Probar el ejemplo de Robot seguidor de Rostros Horizontal:
 
 En la carpeta Robot_Seguidor_Rostros aquí: https://github.com/villalvilla/WRO-2024-Acervantes-Tips/tree/main/Visi%C3%B3n%20artificial%20con%20Raspberry%20Pi/Robot_Seguidor_Rostros
 
 Os he dejado el guión detallado de cómo proceder con el código de detección de rostros y cómo configurar vuestro Robot para que los motores se muevan según la cámara detecte un rostro o no.
 ¡CUIDADO! Debéis tener en cuenta que un equipo estáis haciendo la movilidad del robot con servos 360 y el otro lo habéis probado con driver L298N, por lo que deberéis adaptar el código de ejemplo que os dejo a ello.
+
+
+
