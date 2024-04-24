@@ -1,8 +1,15 @@
+# Importamos las librerías, exactamente igual que en los ejemplos de la semana pasada:
 from picamera import PiCamera
 from picamera.array import PiRGBArray
 import time
 import cv2
 import RPi.GPIO as gpio
+
+# Definimos los pines donde vamos a conectar los motores. ¡OJO! Estamos usando el driver de motor L298N:
+p1MA = 12
+p2MA = 32
+p1MB = 33
+p2MB = 35
 
 def mover(comando, cTrabajo):
     if comando == "i":
@@ -22,11 +29,6 @@ def mover(comando, cTrabajo):
         MA2.ChangeDutyCycle(0)
         MB1.ChangeDutyCycle(0)
         MB2.ChangeDutyCycle(0)
-
-p1MA = 12
-p2MA = 32
-p1MB = 33
-p2MB = 35
 
 resolucion = (640,480)
 sensibilidad = 20
