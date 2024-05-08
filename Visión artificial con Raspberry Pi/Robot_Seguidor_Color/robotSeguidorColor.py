@@ -123,21 +123,21 @@ for frame in camera.capture_continuous(rawCapture, format="bgr", use_video_port=
             roi = cv2.selectROI("frame", image, fromCenter=False, showCrosshair=True)
             roi = tuple(map(int,roi))
             bajo, alto = extractColor(image, roi)
-        elif cuenta &gt; 10:
+        elif cuenta > 10:
             image, mask, cx, cy, area = testColor(image, bajo, alto)
 
-            if cx &gt;= lim1X:
+            if cx >= lim1X:
                 accion = "d"
-            elif cx &lt;= lim2X:
+            elif cx <= lim2X:
                 accion = "i"
-            elif area &lt;= 15000: accion = "f" elif area &gt;= 40000:
+            elif area <= 15000: accion = "f" elif area >= 40000:
                 accion = "r"
             else:
                 accion = "o"
                 
             print(area, accion)
                 
-            if accionOld == accion and cicloTrabajo &lt;26: cicloTrabajo += 2 elif cicloTrabajo &gt; 26:
+            if accionOld == accion and cicloTrabajo < 26: cicloTrabajo += 2 elif cicloTrabajo > 26:
                 cicloTrabajo = 26
                 
             elif accionOld != accion:
@@ -150,7 +150,7 @@ for frame in camera.capture_continuous(rawCapture, format="bgr", use_video_port=
 
     cv2.imshow("frame", image)
     rawCapture.truncate(0)
-    key = cv2.waitKey(1) &amp; 0xFF
+    key = cv2.waitKey(1) & 0xFF
     if key == ord("q"):
         mover("o", 0)
         gpio.cleanup()
