@@ -243,4 +243,8 @@ Para realizar la detección de color, usaremos parte del código de sigue-rostro
 
 ![image](https://github.com/villalvilla/WRO-2024-Acervantes-Tips/assets/3918996/4b0670b9-6217-4657-b262-ef8e2797ac5c)
 
-En la carpeta 
+En la carpeta: https://github.com/villalvilla/WRO-2024-Acervantes-Tips/tree/main/Visi%C3%B3n%20artificial%20con%20Raspberry%20Pi/Robot_Seguidor_Color os he dejado todas las instrucciones pormenorizadas para realizar la segmentación por umbral y, posteriormente, los pasos a dar para modificar el robot sigue-rostros y convertirlo en un robot sigue-colores.
+
+# Paso 14: RETO: Huir en lugar de Seguir - The WRO style!
+
+Como todos sabéis, el objetivo en el WRO es HUIR en lugar de SEGUIR, por lo que deberéis ser capaces de, en un Tatami elíptico, esquivar varias piezas LEGO de colores VERDE, ROJO y AZUL, sin saliros de la línea del Tatami, claro está. ¿Seréis capaces?
