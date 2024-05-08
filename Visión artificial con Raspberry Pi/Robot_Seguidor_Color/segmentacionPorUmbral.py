@@ -38,12 +38,12 @@ for frame in camera.capture_continuous(rawCapture, format="bgr", use_video_port=
         roi = cv2.selectROI("frame", image, fromCenter=False, showCrosshair=True)
         roi = tuple(map(int,roi))
         bajo, alto = extractColor(image, roi)
-    elif cuenta &gt; 10:
+    elif cuenta > 10:
         f, mask = testColor(image, bajo, alto)
         cv2.imshow("frame", mask)
         
     rawCapture.truncate(0)
-    if cv2.waitKey(1) &amp; 0xFF == ord('q'):
+    if cv2.waitKey(1) & 0xFF == ord('q'):
         break
     cuenta += 1
 cv2.destroyAllWindows()
