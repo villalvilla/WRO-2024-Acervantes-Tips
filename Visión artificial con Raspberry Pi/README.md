@@ -236,3 +236,11 @@ Os he dejado el guión detallado de cómo proceder con el código de detección 
 Debéis realizar, partiendo del código del Paso 11, evolucionar el código para que vuestro detector de rostros se aproxime a la cara reconocida según ésta se aleje.
 
 Pista: Debéis jugar con la posición/distancia del recuadro principal de reconocimiento del rostro, para saber si el objeto está más cerca o más lejos.
+
+# Paso 13: Detección de Color - Segmentación por umbral:
+
+Para realizar la detección de color, usaremos parte del código de sigue-rostros para que nuestro robot sea capaz de seguir objetos por color, pero para que esto sea posible, primero debemos saber lo que es la segmentación por umbral:
+
+![image](https://github.com/villalvilla/WRO-2024-Acervantes-Tips/assets/3918996/4b0670b9-6217-4657-b262-ef8e2797ac5c)
+
+En la carpeta 
